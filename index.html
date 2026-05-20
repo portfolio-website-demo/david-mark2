@@ -1,0 +1,578 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>David Mark - Portfolio</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&family=Space+Mono:wght@700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg-color: #e5e7eb;
+            --text-dark: #0f172a;
+            --text-gray: #64748b;
+            --primary: #fcd34d; /* Yellow */
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            background-color: var(--bg-color);
+            background-image: url('bg_landscape_1779254982155.png');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+        }
+
+        .main-container {
+            background: #ffffff;
+            width: 100%;
+            max-width: 1200px;
+            height: 90vh;
+            min-height: 600px;
+            max-height: 800px;
+            border-radius: 28px;
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            position: relative;
+        }
+
+        /* Navbar */
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 40px;
+            flex: 0 0 auto;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            font-size: 20px;
+            font-weight: 700;
+            color: var(--text-dark);
+            letter-spacing: -0.5px;
+        }
+
+        .logo-icon {
+            width: 30px;
+            height: 30px;
+            background: var(--text-dark);
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+        }
+
+        .logo-icon svg {
+            width: 16px;
+            height: 16px;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 24px;
+            list-style: none;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: var(--text-gray);
+            font-weight: 500;
+            font-size: 13px;
+            transition: color 0.3s;
+        }
+
+        .nav-links a:hover, .nav-links a.active {
+            color: var(--text-dark);
+        }
+        
+        .nav-links a.active {
+            text-decoration: underline;
+            text-underline-offset: 6px;
+            text-decoration-thickness: 2px;
+        }
+
+        .menu-btn {
+            background: var(--text-dark);
+            color: white;
+            border: none;
+            padding: 8px 16px;
+            border-radius: 30px;
+            font-family: inherit;
+            font-weight: 600;
+            font-size: 12px;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            cursor: pointer;
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+
+        .menu-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.15);
+        }
+
+        /* Hero Section */
+        .hero {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            position: relative;
+            z-index: 2;
+            padding: 0 20px;
+        }
+
+        .badge-container {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            margin-bottom: 12px;
+        }
+
+        .badge {
+            background: var(--primary);
+            padding: 4px 14px;
+            border-radius: 20px;
+            font-size: 11px;
+            font-weight: 700;
+            color: #000;
+        }
+
+        .badge-text {
+            color: var(--text-gray);
+            font-size: 12px;
+            font-weight: 500;
+        }
+
+        .hero h1 {
+            font-size: 46px;
+            line-height: 1.1;
+            letter-spacing: -0.03em;
+            margin-bottom: 12px;
+            color: var(--text-dark);
+        }
+
+        .hero h1 span.light {
+            color: #94a3b8;
+            font-weight: 500;
+        }
+
+        .hero h1 span.bold {
+            font-weight: 800;
+        }
+
+        .hero p {
+            color: var(--text-gray);
+            max-width: 440px;
+            margin: 0 auto 20px;
+            line-height: 1.5;
+            font-size: 13px;
+            font-weight: 500;
+        }
+
+        .cta-group {
+            display: flex;
+            gap: 14px;
+            justify-content: center;
+        }
+
+        .btn {
+            padding: 10px 20px;
+            border-radius: 30px;
+            font-family: inherit;
+            font-weight: 600;
+            font-size: 13px;
+            cursor: pointer;
+            transition: all 0.3s;
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .btn-primary {
+            background: var(--text-dark);
+            color: white;
+            border: 2px solid var(--text-dark);
+        }
+        
+        .btn-primary:hover {
+            background: #1e293b;
+            border-color: #1e293b;
+        }
+
+        .btn-secondary {
+            background: transparent;
+            color: var(--text-dark);
+            border: 1px solid #cbd5e1;
+        }
+
+        .btn-secondary:hover {
+            background: #f8fafc;
+        }
+
+        /* Carousel */
+        .carousel-container {
+            flex: 0 0 300px;
+            height: 300px;
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: flex-end;
+            padding-bottom: 20px;
+            position: relative;
+            perspective: 1200px;
+        }
+
+        .carousel-track {
+            position: relative;
+            width: 100%;
+            height: 100%;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .carousel-item {
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            border-radius: 20px;
+            overflow: hidden;
+            transition: all 0.8s cubic-bezier(0.25, 1, 0.5, 1);
+            transform-origin: bottom center;
+            box-shadow: 0 15px 35px rgba(0,0,0,0.15);
+            will-change: transform, opacity;
+        }
+
+        .carousel-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .carousel-item.pos-far-left {
+            width: 150px;
+            height: 150px;
+            transform: translateX(-320px) scale(0.85);
+            z-index: 1;
+            opacity: 0.6;
+        }
+
+        .carousel-item.pos-left {
+            width: 180px;
+            height: 180px;
+            transform: translateX(-180px) scale(0.9);
+            z-index: 2;
+            opacity: 0.9;
+        }
+
+        .carousel-item.pos-center {
+            width: 240px;
+            height: 280px;
+            transform: translateX(-50%) scale(1);
+            z-index: 3;
+            opacity: 1;
+        }
+
+        .carousel-item.pos-right {
+            width: 180px;
+            height: 180px;
+            transform: translateX(0px) scale(0.9);
+            z-index: 2;
+            opacity: 0.9;
+        }
+
+        .carousel-item.pos-far-right {
+            width: 150px;
+            height: 150px;
+            transform: translateX(170px) scale(0.85);
+            z-index: 1;
+            opacity: 0.6;
+        }
+        
+        .carousel-item .overlay-badge {
+            position: absolute;
+            bottom: 16px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: rgba(255, 255, 255, 0.98);
+            color: #0f172a;
+            padding: 6px 12px;
+            border-radius: 30px;
+            font-family: 'Space Mono', monospace;
+            font-size: 8px;
+            font-weight: 700;
+            letter-spacing: 0.5px;
+            text-transform: uppercase;
+            white-space: nowrap;
+            opacity: 0;
+            transition: opacity 0.3s;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+        }
+
+        .carousel-item.pos-center .overlay-badge {
+            opacity: 1;
+        }
+
+        /* Animations */
+        .blur-fade-in {
+            animation: blurFadeIn 1.2s cubic-bezier(0.25, 1, 0.5, 1) forwards;
+            animation-delay: 0.2s; 
+            opacity: 0;
+            filter: blur(12px);
+        }
+        
+        .delay-1 { animation-delay: 0.4s; }
+        .delay-2 { animation-delay: 0.6s; }
+
+        @keyframes blurFadeIn {
+            0% {
+                opacity: 0;
+                filter: blur(12px);
+                transform: translateY(15px);
+            }
+            100% {
+                opacity: 1;
+                filter: blur(0);
+                transform: translateY(0);
+            }
+        }
+
+        /* Mobile Responsive Adjustments */
+        @media (max-width: 768px) {
+            body {
+                padding: 10px;
+            }
+
+            .main-container {
+                height: 95vh;
+                min-height: 550px;
+                max-height: 750px;
+                border-radius: 20px;
+            }
+
+            header {
+                padding: 16px 20px;
+            }
+
+            .nav-links {
+                display: none; /* Hide nav links on mobile */
+            }
+
+            .hero {
+                padding: 0 16px;
+            }
+
+            .hero h1 {
+                font-size: 28px;
+                margin-bottom: 8px;
+            }
+
+            .hero p {
+                font-size: 12px;
+                max-width: 300px;
+                margin-bottom: 16px;
+            }
+
+            .badge-container {
+                margin-bottom: 8px;
+            }
+
+            .badge {
+                padding: 3px 10px;
+                font-size: 10px;
+            }
+
+            .badge-text {
+                font-size: 11px;
+            }
+
+            .btn {
+                padding: 8px 16px;
+                font-size: 12px;
+            }
+
+            .cta-group {
+                gap: 10px;
+            }
+
+            /* Scaled down Carousel for Mobile Screens */
+            .carousel-container {
+                flex: 0 0 230px;
+                height: 230px;
+                padding-bottom: 10px;
+                margin-top: 10px;
+            }
+
+            .carousel-item.pos-far-left {
+                width: 120px;
+                height: 120px;
+                transform: translateX(-200px) scale(0.5);
+                z-index: 0;
+                opacity: 0;
+                pointer-events: none;
+            }
+
+            .carousel-item.pos-left {
+                width: 120px;
+                height: 120px;
+                transform: translateX(-120px) scale(0.9);
+                z-index: 1;
+                opacity: 0.7;
+            }
+
+            .carousel-item.pos-center {
+                width: 160px;
+                height: 200px;
+                transform: translateX(-50%) scale(1);
+                z-index: 3;
+                opacity: 1;
+            }
+
+            .carousel-item.pos-right {
+                width: 120px;
+                height: 120px;
+                transform: translateX(0px) scale(0.9);
+                z-index: 1;
+                opacity: 0.7;
+            }
+
+            .carousel-item.pos-far-right {
+                width: 120px;
+                height: 120px;
+                transform: translateX(80px) scale(0.5);
+                z-index: 0;
+                opacity: 0;
+                pointer-events: none;
+            }
+
+            .carousel-item .overlay-badge {
+                bottom: 12px;
+                padding: 4px 10px;
+                font-size: 7px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="main-container">
+        <header>
+            <div class="logo">
+                <div class="logo-icon">
+                    <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M7 7L17 17M17 7L7 17" stroke="currentColor" stroke-width="3" stroke-linecap="round"/>
+                    </svg>
+                </div>
+                David<span style="font-weight:400; color:#64748b;">Mark</span>
+            </div>
+            
+            <ul class="nav-links">
+                <li><a href="#" class="active">Home</a></li>
+                <li><a href="#">Projects</a></li>
+                <li><a href="#">Services</a></li>
+                <li><a href="#">Pricing</a></li>
+                <li><a href="#">Contact</a></li>
+            </ul>
+            
+            <button class="menu-btn">
+                Menu 
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <line x1="3" y1="12" x2="21" y2="12"></line>
+                    <line x1="3" y1="6" x2="21" y2="6"></line>
+                    <line x1="3" y1="18" x2="21" y2="18"></line>
+                </svg>
+            </button>
+        </header>
+
+        <section class="hero">
+            <div class="badge-container blur-fade-in">
+                <div class="badge">photographer</div>
+                <div class="badge-text">Something new</div>
+            </div>
+            
+            <h1 class="blur-fade-in delay-1">
+                <span class="light">Where Creativity</span><br>
+                <span class="bold">Meets Functionality</span>
+            </h1>
+            
+            <p class="blur-fade-in delay-2">I capture and deliver stunning, cinematic photography that not only looks beautiful but also tells a compelling visual story.</p>
+            
+            <div class="cta-group blur-fade-in delay-2">
+                <a href="#" class="btn btn-primary">
+                    Let's Talk
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <line x1="5" y1="12" x2="19" y2="12"></line>
+                        <polyline points="12 5 19 12 12 19"></polyline>
+                    </svg>
+                </a>
+                <a href="#" class="btn btn-secondary">Hire me</a>
+            </div>
+        </section>
+
+        <div class="carousel-container">
+            <div class="carousel-track" id="carousel">
+                <div class="carousel-item pos-far-left">
+                    <img src="cinematic_car_nav.png" alt="Navigation">
+                </div>
+                <div class="carousel-item pos-left">
+                    <img src="cinematic_red_dress.png" alt="Portrait Red Dress">
+                </div>
+                <div class="carousel-item pos-center">
+                    <img src="cinematic_orange_jacket.png" alt="Portrait Orange Jacket">
+                    <div class="overlay-badge">Fashion Editorial & Styling</div>
+                </div>
+                <div class="carousel-item pos-right">
+                    <img src="cinematic_orange_bob.png" alt="Portrait Orange Bob">
+                </div>
+                <div class="carousel-item pos-far-right">
+                    <img src="cinematic_tablet.png" alt="Tablet Stylus">
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const items = Array.from(document.querySelectorAll('.carousel-item'));
+            const positions = ['pos-far-left', 'pos-left', 'pos-center', 'pos-right', 'pos-far-right'];
+            
+            function rotateCarousel() {
+                items.forEach(item => {
+                    positions.forEach(pos => item.classList.remove(pos));
+                });
+                
+                const lastPos = positions.pop();
+                positions.unshift(lastPos);
+                
+                items.forEach((item, index) => {
+                    item.classList.add(positions[index]);
+                });
+            }
+
+            setInterval(rotateCarousel, 3000);
+        });
+    </script>
+</body>
+</html>
